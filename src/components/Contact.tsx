@@ -15,10 +15,16 @@ export default function Contact({ isTechMode }: { isTechMode: boolean }) {
         method: "POST",
         body: formData
       });
-      
-      if (response.ok) {
-        setResult(isTechMode ? "TRANSMISSION SUCCESSFUL. DATA UPLOADED." : "Message Sent Successfully!");
-        event.currentTarget.reset();
+      const data = await response.json();
+      // 👇 DEBUG HERE
+      console.log("Response status:", response.status);
+      console.log("Response OK:", response.ok);
+      console.log("Response data:", data);
+      if (data.success) {
+        setResult(isTechMode
+          ? "TRANSMISSION SUCCESSFUL. DATA UPLOADED."
+          : "Message Sent Successfully!"
+        );
       } else {
         setResult("ERROR: API REJECTED TRANSMISSION.");
       }
@@ -33,35 +39,35 @@ export default function Contact({ isTechMode }: { isTechMode: boolean }) {
         <h2 className={`section-title ${isTechMode ? 'neon-text-pink' : ''}`}>
           {isTechMode ? 'PING_ME()' : 'Get In Touch'}
         </h2>
-        
+
         <div className="glass-panel" style={{ marginTop: '2rem', padding: '3rem', textAlign: 'left' }}>
           <p style={{ color: 'var(--text-main)', fontSize: '1.2rem', marginBottom: '2rem', textAlign: 'center' }}>
-            {isTechMode 
+            {isTechMode
               ? "Ready to collaborate on something awesome? Send a transmission across the network."
               : "I'm currently open to new opportunities. Feel free to shoot me a message!"}
           </p>
-          
+
           <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }} onSubmit={onSubmit}>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <label htmlFor="name" className={isTechMode ? "tech-font" : ""} style={{ color: isTechMode ? 'var(--primary-cyan)' : 'var(--text-main)', fontSize: '0.9rem', fontWeight: isTechMode ? 'normal' : '600' }}>
                 {isTechMode ? 'IDENTIFIER' : 'Name'}
               </label>
-              <input 
-                type="text" 
-                id="name" 
+              <input
+                type="text"
+                id="name"
                 name="name"
                 required
                 placeholder={isTechMode ? "Enter your name..." : "John Doe"}
-                style={{ 
-                  background: isTechMode ? 'rgba(0,0,0,0.5)' : '#fff', 
-                  border: isTechMode ? '1px solid var(--text-muted)' : '1px solid #ccc', 
-                  padding: '1rem', 
+                style={{
+                  background: isTechMode ? 'rgba(0,0,0,0.5)' : '#fff',
+                  border: isTechMode ? '1px solid var(--text-muted)' : '1px solid #ccc',
+                  padding: '1rem',
                   borderRadius: '4px',
                   color: isTechMode ? 'white' : 'black',
                   fontFamily: 'inherit',
                   outline: 'none',
                   transition: 'border-color 0.3s, box-shadow 0.3s'
-                }} 
+                }}
                 onFocus={e => {
                   e.target.style.borderColor = 'var(--primary-pink)';
                   if (isTechMode) e.target.style.boxShadow = '0 0 10px rgba(255, 0, 127, 0.3)';
@@ -72,21 +78,21 @@ export default function Contact({ isTechMode }: { isTechMode: boolean }) {
                 }}
               />
             </div>
-            
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <label htmlFor="email" className={isTechMode ? "tech-font" : ""} style={{ color: isTechMode ? 'var(--primary-cyan)' : 'var(--text-main)', fontSize: '0.9rem', fontWeight: isTechMode ? 'normal' : '600' }}>
                 {isTechMode ? 'NETWORK_ADDRESS' : 'Email Address'}
               </label>
-              <input 
-                type="email" 
-                id="email" 
+              <input
+                type="email"
+                id="email"
                 name="email"
                 required
                 placeholder={isTechMode ? "Enter your email..." : "john@example.com"}
-                style={{ 
-                  background: isTechMode ? 'rgba(0,0,0,0.5)' : '#fff', 
-                  border: isTechMode ? '1px solid var(--text-muted)' : '1px solid #ccc', 
-                  padding: '1rem', 
+                style={{
+                  background: isTechMode ? 'rgba(0,0,0,0.5)' : '#fff',
+                  border: isTechMode ? '1px solid var(--text-muted)' : '1px solid #ccc',
+                  padding: '1rem',
                   borderRadius: '4px',
                   color: isTechMode ? 'white' : 'black',
                   fontFamily: 'inherit',
@@ -103,21 +109,21 @@ export default function Contact({ isTechMode }: { isTechMode: boolean }) {
                 }}
               />
             </div>
-            
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <label htmlFor="message" className={isTechMode ? "tech-font" : ""} style={{ color: isTechMode ? 'var(--primary-cyan)' : 'var(--text-main)', fontSize: '0.9rem', fontWeight: isTechMode ? 'normal' : '600' }}>
                 {isTechMode ? 'PAYLOAD' : 'Message'}
               </label>
-              <textarea 
-                id="message" 
+              <textarea
+                id="message"
                 name="message"
                 required
                 rows={5}
                 placeholder={isTechMode ? "Secure transmission ready..." : "How can I help you?"}
-                style={{ 
-                  background: isTechMode ? 'rgba(0,0,0,0.5)' : '#fff', 
-                  border: isTechMode ? '1px solid var(--text-muted)' : '1px solid #ccc', 
-                  padding: '1rem', 
+                style={{
+                  background: isTechMode ? 'rgba(0,0,0,0.5)' : '#fff',
+                  border: isTechMode ? '1px solid var(--text-muted)' : '1px solid #ccc',
+                  padding: '1rem',
                   borderRadius: '4px',
                   color: isTechMode ? 'white' : 'black',
                   fontFamily: 'inherit',
@@ -135,7 +141,7 @@ export default function Contact({ isTechMode }: { isTechMode: boolean }) {
                 }}
               ></textarea>
             </div>
-            
+
             <button type="submit" className="btn btn-cyan" style={{ alignSelf: 'flex-start', marginTop: '1rem' }}>
               <MessageSquare size={18} />
               {isTechMode ? 'TRANSMIT_DATA' : 'Send Message'}
