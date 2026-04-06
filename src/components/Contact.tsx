@@ -22,7 +22,7 @@ export default function Contact({ isTechMode }: { isTechMode: boolean }) {
       console.log("Response data:", data);
       if (data.success) {
         setResult(isTechMode
-          ? "TRANSMISSION SUCCESSFUL. DATA UPLOADED."
+          ? "TRANSMISSION SUCCESSFUL. DATA SENT."
           : "Message Sent Successfully!"
         );
       } else {
