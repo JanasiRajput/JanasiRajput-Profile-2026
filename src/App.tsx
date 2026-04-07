@@ -3,10 +3,11 @@ import Hero from './components/Hero';
 import Projects from './components/Projects';
 import About from './components/About';
 import Contact from './components/Contact';
-import { Code2 } from 'lucide-react';
+import { Code2, Menu, X, Sun, Moon } from 'lucide-react';
 
 function App() {
   const [isTechMode, setIsTechMode] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (isTechMode) {
@@ -43,40 +44,39 @@ function App() {
         backdropFilter: 'blur(5px)',
         borderBottom: isTechMode ? 'none' : '1px solid var(--glass-border)'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', zIndex: 101 }}>
           <Code2 size={28} className={isTechMode ? "neon-text-pink" : ""} style={{ color: isTechMode ? '' : 'var(--primary-pink)' }} />
           <span className={`tech-font ${isTechMode ? 'text-gradient' : ''}`} style={{ fontWeight: 'bold', fontSize: '1.2rem', color: isTechMode ? '' : 'var(--text-main)' }}>
             {isTechMode ? 'JR.sys' : 'Janasi Rajput'}
           </span>
         </div>
-        <div className={`nav-links ${isTechMode ? "tech-font" : ""}`}>
-          <a href="#about" style={{ textDecoration: 'none', color: 'var(--text-main)', fontSize: '0.9rem', transition: 'color 0.3s' }}>
+
+        {/* Mobile Hamburger Toggle */}
+        <button 
+          className="mobile-menu-btn"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Navigation Links / Mobile Drawer */}
+        <div className={`mobile-drawer ${isMobileMenuOpen ? 'open' : ''} ${isTechMode ? "tech-font" : ""}`}>
+          <a href="#about" onClick={() => setIsMobileMenuOpen(false)} style={{ textDecoration: 'none', color: 'var(--text-main)', fontSize: '0.9rem', transition: 'color 0.3s' }}>
             {isTechMode ? '/ABOUT' : 'About'}
           </a>
-          <a href="#projects" style={{ textDecoration: 'none', color: 'var(--text-main)', fontSize: '0.9rem', transition: 'color 0.3s' }}>
+          <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} style={{ textDecoration: 'none', color: 'var(--text-main)', fontSize: '0.9rem', transition: 'color 0.3s' }}>
             {isTechMode ? '/PROJECTS' : 'Projects'}
           </a>
-          <a href="#contact" style={{ textDecoration: 'none', color: 'var(--text-main)', fontSize: '0.9rem', transition: 'color 0.3s' }}>
+          <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} style={{ textDecoration: 'none', color: 'var(--text-main)', fontSize: '0.9rem', transition: 'color 0.3s' }}>
             {isTechMode ? '/CONTACT' : 'Contact'}
           </a>
           
           <button 
             onClick={() => setIsTechMode(!isTechMode)}
-            style={{
-              padding: '0.5rem 1rem',
-              background: isTechMode ? 'transparent' : 'var(--primary-pink)',
-              color: isTechMode ? 'var(--primary-cyan)' : 'white',
-              border: `1px solid ${isTechMode ? 'var(--primary-cyan)' : 'var(--primary-pink)'}`,
-              borderRadius: '6px',
-              cursor: 'pointer',
-              fontFamily: 'inherit',
-              fontWeight: isTechMode ? 'normal' : '600',
-              fontSize: '0.8rem',
-              marginLeft: '1rem',
-              transition: 'all 0.3s'
-            }}
+            className="theme-toggle-btn"
+            title={isTechMode ? "Switch to Minimalist Mode" : "Switch to Tech Mode"}
           >
-            {isTechMode ? 'DISABLE.TECH_MODE()' : 'Enable Tech Mode'}
+            {isTechMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
         </div>
       </nav>

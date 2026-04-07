@@ -90,7 +90,7 @@ export default function ProjectModal({ project, isTechMode, onClose }: ProjectMo
                 <span style={{ fontSize: '0.75rem', padding: '2px 8px', borderRadius: '12px', background: 'var(--primary-pink)', color: 'white', fontWeight: 'bold' }}>{project.category}</span>
                 <span style={{ fontSize: '0.75rem', padding: '2px 8px', borderRadius: '12px', background: 'rgba(255,255,255,0.2)', color: 'white', border: '1px solid rgba(255,255,255,0.4)', fontWeight: 'bold' }}>{project.status}</span>
               </div>
-              <h2 className={isTechMode ? "neon-text-pink" : ""} style={{ fontSize: '2.5rem', margin: 0, color: 'white' }}>
+              <h2 className={isTechMode ? "neon-text-pink" : ""} style={{ fontSize: 'clamp(1.5rem, 5vw, 2.5rem)', margin: 0, color: 'white' }}>
                 {project.title}
               </h2>
             </div>
@@ -98,10 +98,7 @@ export default function ProjectModal({ project, isTechMode, onClose }: ProjectMo
         </div>
 
         {/* Action Bar */}
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'space-between', 
-          padding: '1rem 2rem', 
+        <div className="modal-action-bar" style={{ 
           borderBottom: '1px solid var(--glass-border)',
           background: isTechMode ? 'rgba(0,0,0,0.4)' : 'rgba(255,255,255,0.5)'
         }}>
@@ -153,7 +150,7 @@ export default function ProjectModal({ project, isTechMode, onClose }: ProjectMo
         </div>
 
         {/* Content Area */}
-        <div style={{ padding: '2rem', overflowY: 'auto', flexGrow: 1 }}>
+        <div className="modal-body-area">
           {activeTab === 'overview' ? (
             <div className="fade-in" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
               <div>
