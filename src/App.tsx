@@ -37,9 +37,8 @@ function App() {
       )}
 
       {/* Navigation */}
-      <nav style={{ 
+      <nav className="nav-container" style={{ 
         position: 'fixed', top: 0, width: '100%', padding: '1.5rem', 
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center', 
         zIndex: 100, background: isTechMode ? 'linear-gradient(to bottom, rgba(5,5,5,0.9), transparent)' : 'rgba(255, 255, 255, 0.9)',
         backdropFilter: 'blur(5px)',
         borderBottom: isTechMode ? 'none' : '1px solid var(--glass-border)'
@@ -50,7 +49,7 @@ function App() {
             {isTechMode ? 'JR.sys' : 'Janasi Rajput'}
           </span>
         </div>
-        <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }} className={isTechMode ? "tech-font" : ""}>
+        <div className={`nav-links ${isTechMode ? "tech-font" : ""}`}>
           <a href="#about" style={{ textDecoration: 'none', color: 'var(--text-main)', fontSize: '0.9rem', transition: 'color 0.3s' }}>
             {isTechMode ? '/ABOUT' : 'About'}
           </a>

@@ -403,8 +403,83 @@ h1, h2, h3, h4, h5, h6, .tech-font {
   animation: fadeIn 0.4s ease forwards;
 }
 
+/* Layout Classes for Responsive Nav & Forms */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.contact-form-container {
+  padding: 3rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.modal-action-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
+
+.modal-body-area {
+  padding: 2rem;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+/* Media Queries for Mobile Responsiveness */
 @media (max-width: 768px) {
   .hide-on-mobile {
     display: none;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .glass-panel {
+    padding: 1.5rem;
+  }
+
+  .contact-form-container {
+    padding: 1.5rem;
+  }
+
+  /* Stack Navigation on smaller screens */
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .modal-action-bar {
+    flex-direction: column-reverse;
+    gap: 1rem;
+    padding: 1rem !important;
+  }
+
+  .modal-body-area {
+    padding: 1rem !important;
   }
 }

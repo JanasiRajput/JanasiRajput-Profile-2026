@@ -40,7 +40,7 @@ export default function Contact({ isTechMode }: { isTechMode: boolean }) {
           {isTechMode ? 'PING_ME()' : 'Get In Touch'}
         </h2>
 
-        <div className="glass-panel" style={{ marginTop: '2rem', padding: '3rem', textAlign: 'left' }}>
+        <div className="glass-panel contact-form-container">
           <p style={{ color: 'var(--text-main)', fontSize: '1.2rem', marginBottom: '2rem', textAlign: 'center' }}>
             {isTechMode
               ? "Ready to collaborate on something awesome? Send a transmission across the network."
