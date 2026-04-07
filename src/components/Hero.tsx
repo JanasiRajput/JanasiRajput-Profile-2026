@@ -18,7 +18,7 @@ export default function Hero({ isTechMode }: { isTechMode: boolean }) {
   return (
     <section id="home" className="section" style={{ position: 'relative', justifyContent: 'center' }}>
       <div className="container" style={{ zIndex: 1, position: 'relative' }}>
-        <div className="hero-content" style={{ maxWidth: '800px', margin: isTechMode ? '0' : '0 auto', textAlign: isTechMode ? 'left' : 'center' }}>
+        <div className="hero-content" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
           
           {isTechMode ? (
             <p className="neon-text-cyan tech-font" style={{ fontSize: '1.2rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -31,7 +31,7 @@ export default function Hero({ isTechMode }: { isTechMode: boolean }) {
             </p>
           )}
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', marginBottom: '1rem', justifyContent: isTechMode ? 'flex-start' : 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '2rem', marginBottom: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <img 
               src="/profile.jpg" 
               alt="Janasi Rajput" 
@@ -48,7 +48,7 @@ export default function Hero({ isTechMode }: { isTechMode: boolean }) {
               <h1 className={isTechMode ? "neon-text-pink" : ""} style={{ fontSize: 'clamp(2.2rem, 8vw, 5rem)', lineHeight: 1.1, fontWeight: 'bold' }}>
                 JANASI RAJPUT
               </h1>
-              <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', justifyContent: isTechMode ? 'flex-start' : 'center' }}>
+              <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', justifyContent: 'center' }}>
                 <a href="https://www.linkedin.com/in/janasi-rajput-837469284/" target="_blank" rel="noreferrer" style={{ color: isTechMode ? 'var(--primary-cyan)' : 'var(--text-main)', transition: 'color 0.3s' }} onMouseOver={e => e.currentTarget.style.color = 'var(--primary-pink)'} onMouseOut={e => e.currentTarget.style.color = isTechMode ? 'var(--primary-cyan)' : 'var(--text-main)'}>
                   <LinkedinIcon size={24} />
                 </a>
@@ -63,11 +63,11 @@ export default function Hero({ isTechMode }: { isTechMode: boolean }) {
             Creative Frontend Developer
           </h2>
           
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: '600px', marginBottom: '3rem', lineHeight: 1.6, margin: isTechMode ? '0 0 3rem 0' : '0 auto 3rem auto' }}>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', maxWidth: '600px', marginBottom: '3rem', lineHeight: 1.6, margin: '0 auto 3rem auto' }}>
             Crafting digital experiences with interactive flair, unique artistic touches, and high-performance code.
           </p>
           
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: isTechMode ? 'flex-start' : 'center' }}>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center' }}>
             <a href="#projects" className={`btn ${isTechMode ? 'animate-pulse-glow' : ''}`}>
               {isTechMode ? 'VIEW_PROJECTS.exe' : 'View Projects'}
             </a>
