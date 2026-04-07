@@ -21,7 +21,7 @@ export default function Hero({ isTechMode }: { isTechMode: boolean }) {
         <div className="hero-content" style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
           
           {isTechMode ? (
-            <p className="neon-text-cyan tech-font" style={{ fontSize: '1.2rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <p className="neon-text-cyan tech-font" style={{ fontSize: '1.2rem', marginBottom: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
               <Terminal size={20} />
               SYSTEM.INIT()
             </p>
