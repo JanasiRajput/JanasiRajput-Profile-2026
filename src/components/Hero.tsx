@@ -45,7 +45,7 @@ export default function Hero({ isTechMode }: { isTechMode: boolean }) {
               }} 
             />
             <div>
-              <h1 className={isTechMode ? "neon-text-pink" : ""} style={{ fontSize: 'clamp(3rem, 6vw, 5rem)', lineHeight: 1.1, fontWeight: 'bold' }}>
+              <h1 className={isTechMode ? "neon-text-pink" : ""} style={{ fontSize: 'clamp(2.2rem, 8vw, 5rem)', lineHeight: 1.1, fontWeight: 'bold' }}>
                 JANASI RAJPUT
               </h1>
               <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', justifyContent: isTechMode ? 'flex-start' : 'center' }}>
