@@ -1,10 +1,41 @@
-import { Monitor, Server, Cpu, Layers } from 'lucide-react';
+import { Monitor, Server, Cpu, Cloud, Code, Database, Wrench } from 'lucide-react';
 
 const skills = [
-  { name: 'Frontend', icon: <Monitor size={32} />, items: ['React', 'TypeScript', 'CSS', 'HTML'] },
-  { name: 'Backend', icon: <Server size={32} />, items: ['Node.js', 'Express', 'SQL', 'MongoDB'] },
-  { name: 'Tools', icon: <Cpu size={32} />, items: ['Git', 'Vite', 'Webpack', 'Figma'] },
-  { name: 'Specialties', icon: <Layers size={32} />, items: ['Responsive Design', 'Accessibility', 'UX/UI'] },
+  {
+    name: 'Cloud & DevOps',
+    icon: <Cloud size={32} />,
+    items: ['AWS', 'Linux', 'Docker', 'GitHub Actions'],
+  },
+  {
+    name: 'Languages',
+    icon: <Code size={32} />,
+    items: ['C#', 'Java', 'JavaScript', 'TypeScript', 'Python', 'C++', 'Kotlin', 'Swift'],
+  },
+  {
+    name: 'Frontend',
+    icon: <Monitor size={32} />,
+    items: ['Ionic', 'React', 'Next.js', 'Bootstrap', 'HTML5', 'Blazor', 'Angular', 'CSS3'],
+  },
+  {
+    name: 'Backend',
+    icon: <Server size={32} />,
+    items: ['FastAPI', 'Flask', '.NET Core', 'Node.js', 'Express.js', 'Spring Boot', '.NET'],
+  },
+  {
+    name: 'Databases',
+    icon: <Database size={32} />,
+    items: ['PostgreSQL', 'MongoDB', 'MySQL'],
+  },
+  {
+    name: 'Tools & Concepts',
+    icon: <Wrench size={32} />,
+    items: ['Jira', 'Postman', 'Figma', 'Git', 'VS Code'],
+  },
+  {
+    name: 'Machine Learning',
+    icon: <Cpu size={32} />,
+    items: ['Pandas', 'TensorFlow', 'Scikit-learn', 'NumPy'],
+  },
 ];
 
 export default function About({ isTechMode }: { isTechMode: boolean }) {
